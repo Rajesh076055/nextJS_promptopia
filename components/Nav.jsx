@@ -27,6 +27,7 @@ const Nav = () => {
             width={30}
             height={30}
             className='object-contain'
+            alt = 'promptopia_logo'
             />
 
             <p className='logo_text'>Promptopia</p>
@@ -44,11 +45,12 @@ const Nav = () => {
                         Sign Out
                     </button>
 
-                    <Link href = '/profile'>
+                    <Link href = {`/profile?id=${session?.user.id}`}>
                         <Image
                             src = {session?.user.image}
                             width={37}
                             height={37}
+                            alt = 'user_icon'
                             className='rounded-full'
                         />    
                     </Link>

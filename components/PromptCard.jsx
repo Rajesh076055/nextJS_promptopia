@@ -19,13 +19,22 @@ const PromptCard = ({post, handleTagClick,handleEdit, handleDelete}) => {
     setTimeout(()=>setCopied(""),3000);
   }
 
+  const showProfile = async() => {
+
+     router.push(`/profile?id=${post.creator._id}`);
+
+
+  }
+
   return (
    <div className="prompt_card">
         <div className="flex justify-between items-start gap-5">
-            <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
+            <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer"
+            onClick={showProfile}
+            >
                 <Image
                     src = {post.creator.image}
-                    alt = {'user_image'}
+                    alt = 'user_image'
                     width = {40}
                     height = {40}
                     className="rounded-full object-contain"
@@ -39,8 +48,9 @@ const PromptCard = ({post, handleTagClick,handleEdit, handleDelete}) => {
             <div className="copy_btn" onClick={handleCopy}>
                 <Image 
                     src = {copied === post.prompt?'/assets/icons/tick.svg' : '/assets/icons/copy.svg'}
-                width = {12}
-                height = {12}
+                    width = {12}
+                    height = {12}
+                    alt = 'labels'
                 />
             </div>
         </div>
